@@ -1,19 +1,26 @@
-name: Cypress Tests using Cypress Docker Image
+name: Cypress Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # Replace with the branch where you want to trigger the tests
 
 jobs:
-  cypress-run:
+  build:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16-chrome87-ff82
+
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v2
 
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: npm run --config cypress.config.js
-        uses: cypress-io/github-action@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          # Specify Browser 
-          browser: chrome
+          node-version: 16  # Use the Node.js version required for your project
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        run: npm run cypress:run  # Adjust the script name according to your project setup
+
