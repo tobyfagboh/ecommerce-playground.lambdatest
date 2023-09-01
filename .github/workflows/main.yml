@@ -26,3 +26,15 @@ jobs:
 
       - name: Run Newman Tests
         run: newman run postman_collection.json
+      
+      - name: Archive Test Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-artifacts  # Choose a name for your artifact
+          path: cypress/reports  # Replace with the path to your Cypress test artifacts directory
+      
+      - name: Upload Newman Test Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: newman-reports
+          path: newman  # Specify the path to the folder containing your Newman test report files
