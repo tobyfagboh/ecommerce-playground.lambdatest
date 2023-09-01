@@ -11,16 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: npm run
+        uses: cypress-io/github-action@v4
         with:
-          node-version: 16  # Use the Node.js version required for your project
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Cypress Tests
-        run: npm run cypress:run  # Adjust the script name according to your project setup
-
+          # Specify Browser 
+          browser: chrome
