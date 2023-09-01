@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress Cucumber Tests
-        run: npx cypress run --reporter mochawesome
+        run: npx cypress run
 
 
       - name: Run Newman Tests
