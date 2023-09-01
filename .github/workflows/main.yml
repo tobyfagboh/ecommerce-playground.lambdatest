@@ -22,7 +22,8 @@ jobs:
         run: npm install
 
       - name: Run Cypress Cucumber Tests
-        run: npx cypress run
+        run: npx cypress run --reporter mochawesome
+
 
       - name: Run Newman Tests
         run: newman run postman_collection.json --reporters cli,junit --reporter-junit-export report/newman/newman-report.xml
@@ -30,10 +31,10 @@ jobs:
       - name: Cypress Test Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: cypress-artifacts  # Choose a name for your artifact
-          path: cypress/reports  # Replace with the path to your Cypress test artifacts directory
+          name: cypress-artifacts  
+          path: cypress/reports/mocha 
       
-      - name: Upload Newman Test Report
+      - name: Newman Test Report
         uses: actions/upload-artifact@v2
         with:
           name: newman-reports

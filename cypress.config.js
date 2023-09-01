@@ -13,6 +13,9 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+
+  reporter: 'cypress-mochawesome-reporter',
+
   e2e: {
     baseUrl: 'https://ecommerce-playground.lambdatest.io/',
     defaultCommandTimeout: 15000,
@@ -21,6 +24,9 @@ module.exports = defineConfig({
     viewportWidth: 1400,
     specPattern: '**/*.feature',
     supportFile: 'cypress/support/e2e.js',
-    setupNodeEvents,
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+      },    
   },
+
 });
