@@ -23,3 +23,6 @@ jobs:
 
       - name: Run Cypress Cucumber Tests
         run: npx cypress run
+
+      - name: Run Newman Tests
+        run: newman run postman_collection.json
