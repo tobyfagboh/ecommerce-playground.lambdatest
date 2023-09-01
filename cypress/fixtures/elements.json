@@ -1,0 +1,13 @@
+{
+  "product": "#mz-product-grid-image-28-212408 > .carousel-inner > .active > .lazy-load",
+  "email_field": "#input-email",
+  "firstname_field": "#input-firstname",
+  "lastname_field": "#input-lastname",
+  "phone_field": "#input-telephone",
+  "password_field": "#input-password",
+  "confirm_field": "#input-confirm",
+  "policy_agreement": ".custom-checkbox.custom-control.custom-control-inline",
+  "registration_complete": ".page-title",
+  "account_button": "li:nth-of-type(6) > a[role='button']",
+  "logout_button": "li:nth-of-type(6) > .both.dropdown-item.icon-left"
+}
